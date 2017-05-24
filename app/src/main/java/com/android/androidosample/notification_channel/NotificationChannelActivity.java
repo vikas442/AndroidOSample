@@ -2,10 +2,12 @@ package com.android.androidosample.notification_channel;
 
 import android.app.NotificationChannel;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -86,22 +88,53 @@ public class NotificationChannelActivity extends AppCompatActivity {
             return mChannels.size();
         }
 
-        class NotificationChannelHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        class NotificationChannelHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
 
             @BindView(android.R.id.text1)
-            public TextView textView;
+            TextView textView;
 
-            public NotificationChannelHolder(View view) {
+            NotificationChannelHolder(View view) {
                 super(view);
                 ButterKnife.bind(this, view);
                 view.setOnClickListener(this);
+                view.setOnLongClickListener(this);
             }
 
             @Override
             public void onClick(@NonNull View v) {
                 onChannelClicked(mChannels.get(getAdapterPosition()));
             }
+
+            @Override
+            public boolean onLongClick(View view) {
+                onChannelLongClicked(mChannels.get(getAdapterPosition()));
+                return true;
+            }
         }
+    }
+
+    private void onChannelLongClicked(final NotificationChannel channel) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                .setMessage(R.string.msg_delete_channel)
+                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                })
+                .setPositiveButton(R.string.delete, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        NotificationChannelHelper channelHelper = NotificationChannelHelper.getInstance(getApplicationContext());
+                        channelHelper.deleteChannel(channel);
+                        mNotificationChannels.clear();
+                        mNotificationChannels.addAll(channelHelper.getNotificationChannels());
+                        mChannelAdapter.notifyDataSetChanged();
+                        dialogInterface.dismiss();
+                    }
+                })
+                .setCancelable(true);
+        builder.show();
     }
 
     private void onChannelClicked(NotificationChannel channel) {

@@ -6,4 +6,7 @@
     <string name="channel_description">This is a test notification channel</string>
     <string name="group_name">Notification Channel Group</string>
     <string name="title_list_notification_channels">List Notification Channels</string>
+    <string name="msg_delete_channel">Delete this Channel?</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
 </resources>

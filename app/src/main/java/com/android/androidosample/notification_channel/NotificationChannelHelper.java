@@ -82,7 +82,11 @@ class NotificationChannelHelper {
         mNotificationManager.createNotificationChannelGroup(new NotificationChannelGroup(GROUP_ID, name));
     }
 
-    public List<NotificationChannel> getNotificationChannels(){
+    List<NotificationChannel> getNotificationChannels(){
         return mNotificationManager.getNotificationChannels();
+    }
+
+    void deleteChannel(NotificationChannel channel) {
+        mNotificationManager.deleteNotificationChannel(channel.getId());
     }
 }
