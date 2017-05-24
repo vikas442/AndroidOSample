@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context="com.android.androidosample.notification_channel.NotificationChannelActivity">
+
+    <Button
+        android:id="@+id/btn_notification_channel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/label_generate_notification"/>
+
+    <Button
+        android:id="@+id/btn_list_notification_channel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/title_list_notification_channels"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp"/>
+
+</LinearLayout>

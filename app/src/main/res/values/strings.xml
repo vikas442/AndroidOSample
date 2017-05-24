@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">AndroidOSample</string>
+    <string name="title_notification_channel">Notification Channel</string>
+    <string name="label_generate_notification">Generate Notification</string>
+    <string name="channel_name">Sample Notification Channel</string>
+    <string name="channel_description">This is a test notification channel</string>
+    <string name="group_name">Notification Channel Group</string>
+    <string name="title_list_notification_channels">List Notification Channels</string>
+</resources>
