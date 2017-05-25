@@ -8,4 +8,20 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Widget.PictureInPicture.MovieView" parent="android:Widget">
+        <item name="android:src">@null</item>
+        <item name="android:adjustViewBounds">false</item>
+    </style>
+
+    <style name="NoTitle" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="ThemeOverlay.PictureInPicture.SeekBar" parent="ThemeOverlay.AppCompat">
+        <item name="colorAccent">@android:color/white</item>
+        <item name="colorControlNormal">@android:color/white</item>
+    </style>
 </resources>

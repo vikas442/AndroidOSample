@@ -6,6 +6,7 @@ import android.app.NotificationChannelGroup;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.graphics.Color;
+import android.support.v4.app.NotificationCompat;
 
 import com.android.androidosample.R;
 
@@ -46,6 +47,8 @@ class NotificationChannelHelper {
                 .setContentText("You've received new messages.")
                 .setSmallIcon(R.drawable.ic_notify_status)
                 .setChannel(CHANNEL_ID)
+//                .setNumber(1)    //Set numbers to be displayed in badge.
+//                .setBadgeIconType(Notification.BADGE_ICON_SMALL)
                 .build();
         // Issue the notification.
         mNotificationManager.notify(notifyID, notification);
@@ -68,6 +71,7 @@ class NotificationChannelHelper {
         // channel, if the device supports this feature.
         mChannel.setLightColor(Color.RED);
         mChannel.enableVibration(true);
+//        mChannel.setShowBadge(true);
         mChannel.setVibrationPattern(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400});
 
         //Set the group id for Notification channel
@@ -82,7 +86,7 @@ class NotificationChannelHelper {
         mNotificationManager.createNotificationChannelGroup(new NotificationChannelGroup(GROUP_ID, name));
     }
 
-    List<NotificationChannel> getNotificationChannels(){
+    List<NotificationChannel> getNotificationChannels() {
         return mNotificationManager.getNotificationChannels();
     }
 

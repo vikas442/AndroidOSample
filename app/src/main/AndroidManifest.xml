@@ -5,12 +5,12 @@
 
     <application
         android:allowBackup="true"
+        android:fullBackupContent="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:fullBackupContent="false"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -19,12 +19,36 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".notification_channel.NotificationChannelActivity"
-            android:parentActivityName=".MainActivity"
-            android:label="@string/title_notification_channel">
+        <activity
+            android:name=".font_resource.FontResourceActivity"
+            android:label="@string/title_font_resourcec"
+            android:parentActivityName=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.RUN" />
-                <category android:name="com.android.androidosample.SAMPLE" />
+                <action android:name="android.intent.action.RUN"/>
+
+                <category android:name="com.android.androidosample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".notification_channel.NotificationChannelActivity"
+            android:label="@string/title_notification_channel"
+            android:parentActivityName=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.RUN"/>
+
+                <category android:name="com.android.androidosample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".picture_in_picture.PIPActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+            android:label="@string/title_pip"
+            android:supportsPictureInPicture="true"
+            android:theme="@style/NoTitle">
+            <intent-filter>
+                <action android:name="android.intent.action.RUN"/>
+
+                <category android:name="com.android.androidosample.SAMPLE"/>
             </intent-filter>
         </activity>
     </application>

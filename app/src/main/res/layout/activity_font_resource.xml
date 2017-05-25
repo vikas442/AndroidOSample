@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="12dp"
+    tools:context=".font_resource.FontResourceActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/arabic_regular"
+        android:text="@string/font_from_xml"
+        android:textSize="22sp"/>
+
+    <TextView
+        android:id="@+id/tv_font_from_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/font_from_code"
+        android:textSize="22sp"/>
+
+    <Button
+        android:id="@+id/btn_apply_font"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/apply_font"/>
+</LinearLayout>
